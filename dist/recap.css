@@ -1,0 +1,35 @@
+body[data-view="evening"] .hero{display:none}
+.recap-head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin:54px 0 28px}
+.recap-head h1{font-size:clamp(30px,4.5vw,48px);letter-spacing:-1.6px;line-height:1.12;margin:12px 0}
+.recap-head p{max-width:600px;color:var(--muted);line-height:1.7}
+.recap-head .badge{margin-top:12px;white-space:nowrap}
+.recap-start{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 28px}
+.recap-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:22px}
+.recap-box{padding:24px;border:1px solid var(--line);background:#0a1c2c;border-radius:16px;min-width:0}
+.recap-box h2{font-size:20px;letter-spacing:-.4px;margin:6px 0 20px}
+.recap-box label{display:block;position:static;font-size:12px;color:#bdcddd;margin:15px 0 7px;line-height:1.5}
+.recap-box input:not([type="checkbox"]),.recap-box textarea{display:block;box-sizing:border-box;width:100%;min-width:0;background:#061321;border:1px solid #365064;color:var(--ink);border-radius:8px;padding:11px 12px;margin-top:6px;font-size:14px;line-height:1.6;resize:vertical}
+.recap-box input:focus,.recap-box textarea:focus{outline:2px solid #ffab5d;outline-offset:2px}
+.recap-box textarea::placeholder,.recap-box input::placeholder{color:#879eaf}
+.recap-columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.recap-permissions{margin-top:22px;padding:22px 24px;border:1px solid #2d485e;border-radius:14px;background:#10253888}
+.recap-permissions .check,.recap-result .check{display:flex;position:static;align-items:flex-start;gap:10px;padding:9px 0;margin:0;background:transparent;border:0;font-size:13px;line-height:1.6;color:#c5d7e4}
+.recap-permissions input[type="checkbox"],.recap-result input[type="checkbox"]{flex:0 0 auto;width:17px;height:17px;margin-top:3px}
+.recap-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.recap-status{min-height:24px;color:#ffc38c;line-height:1.6;font-size:14px;margin:16px 0}
+.recap-assistant{border-top:1px solid var(--line);padding-top:20px;margin:26px 0}
+.recap-assistant summary{cursor:pointer;color:#bfd5e4;padding:8px 0}
+.recap-assistant p{font-size:13px;color:var(--muted);line-height:1.7;max-width:760px}
+.recap-assistant textarea{width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;background:#061321;color:var(--ink);padding:12px;font:13px/1.6 monospace;margin:12px 0}
+.recap-result{border:1px solid #aa642e88;border-radius:18px;padding:28px;background:linear-gradient(130deg,#152d3d,#0a1928);margin:28px 0 44px}
+.recap-result h2{font-size:clamp(23px,3.3vw,32px);line-height:1.25;letter-spacing:-.6px;margin:16px 0}
+.recap-result p{line-height:1.8}.recap-result #recap-connection{font-size:18px;color:#e9f0f6;max-width:900px}
+.recap-result .section-kicker{display:block;margin-top:24px;color:#ffb274}
+.recap-result blockquote{margin:18px 0 7px;border-left:2px solid #ff9b4b;padding-left:14px;white-space:pre-wrap;overflow-wrap:anywhere;color:#cbdbe6;font-size:14px;line-height:1.7}
+.recap-result details{padding:16px 0;border-block:1px solid #38546988;margin-top:24px}
+.recap-result summary{cursor:pointer;font-size:14px;color:#b9d0e0}
+.recap-result .recap-feedback{padding-top:20px;margin-top:20px;border-top:1px solid #38546988}
+.recap-feedback button[aria-pressed="true"]{border-color:#ffab5d;color:#ffd1a7;background:#543824}
+.recap-limits{font-size:12px;color:var(--muted);line-height:1.7;max-width:850px}
+@media(max-width:950px){header{gap:14px;padding-inline:20px}.nav{padding-inline:12px;font-size:11px}.recap-grid{gap:14px}.recap-box{padding:18px}}
+@media(max-width:700px){header{height:auto;flex-wrap:wrap;padding-block:16px;gap:14px}header .brand{flex:1}header nav{order:3;width:100%;overflow-x:auto;justify-content:flex-start;margin:0}header #settings{margin-left:auto}.nav{flex-shrink:0}.recap-head{margin-top:28px;display:block}.recap-head .badge{display:inline-block}.recap-grid,.recap-columns{grid-template-columns:1fr}.recap-result{padding:20px}.recap-permissions{padding:16px}.recap-actions .primary{width:100%}}

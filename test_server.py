@@ -55,3 +55,12 @@ class HTTPTests(unittest.TestCase):
   self.assertEqual(cm.exception.code,403)
   with self.assertRaises(urllib.error.HTTPError) as cm:self.get('/api/health',{'Host':'localhost:8765','Origin':'https://evil.example'})
   self.assertEqual(cm.exception.code,403)
+
+ def test_evening_route_requires_consent(self):
+  import urllib.request, urllib.error
+  payload=json.dumps({'context':{'problem':'Build a prototype','text':'Independent work can run in parallel','source':'A note'}}).encode()
+  request=urllib.request.Request('http://127.0.0.1:%s/api/evening-recap'%self.http.server_port,data=payload,headers={'Host':'localhost:8765','Content-Type':'application/json'})
+  with patch.object(server,'model_json') as model:
+   with self.assertRaises(urllib.error.HTTPError) as cm:urllib.request.urlopen(request)
+   self.assertEqual(cm.exception.code,400)
+   model.assert_not_called()

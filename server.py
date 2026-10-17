@@ -4,6 +4,7 @@ import os, json, sqlite3, hashlib, math, re, threading, uuid, urllib.request, ur
 from functools import lru_cache
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
+from evening import recap as evening_recap
 ROOT = Path(__file__).parent.resolve()
 DB_PATH = Path(os.getenv('EVENTMEMORY_DB', str(ROOT / 'data' / 'vectors.sqlite3')))
 API_KEY = os.getenv('OPENAI_API_KEY', '')
@@ -244,6 +245,7 @@ class Handler(SimpleHTTPRequestHandler):
             if self.path=='/api/connections':return self.json(connections(data))
             if self.path=='/api/ask':return self.json(evidence_answer(data))
             if self.path=='/api/brief':return self.json(evidence_answer(data,True))
+            if self.path=='/api/evening-recap':return self.json(evening_recap(data,model_json))
             if self.path=='/api/delete-memory':
                 with LOCK,database() as conn:conn.execute('DELETE FROM vectors WHERE source_id=?',(data.get('id'),))
                 return self.json({'deleted':True})
